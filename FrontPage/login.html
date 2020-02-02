@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login </title>
+
+    <!-- Bootstrap -->
+    <link href="js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="js/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="js/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="js/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper" ng-app="myApp" ng-controller="siteCtrl">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form>
+              <h1>Login Form</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="学号" required="" id="stuid" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="密码" id="psw" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" ng-click="login()">登录</a>
+                <a class="reset_pass" href="#">忘记密码</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">没有账号？
+                  <a href="#signup" class="to_register"> 创建账户 </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> 喵喵文件传输</h1>
+                  <p>©2019 All Rights Reserved. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>注册账户</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="学号" required="" id="new_id" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="姓名" required="" id="new_name"/>
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="学校" required="" id="new_school"/>
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="密码" required="" id="new_psw"/>
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="再输入一次密码" required="" id="new_psw2"/>
+              </div>
+              <div>
+                <a class="btn btn-default submit" ng-click="reg()">注册</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">已有账户？
+                  <a href="#signin" class="to_register"> 登录 </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> 喵喵文件传输</h1>
+                  <p>©2019 All Rights Reserved.  Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="js/angular/angular-route.js" type="text/javascript"></script>
+<script src="js/angular/angular.js" type="text/javascript"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script>
+
+    var app = angular.module('myApp', []);
+    app.controller('siteCtrl', function($scope, $http) {
+        $scope.login = function () {
+            var address = getAddress();
+            // alert(address);
+            var id= document.getElementById("stuid").value;
+            var psw= document.getElementById("psw").value;
+            // $http({
+            //     method:'POST',
+            //     url:'http://192.168.1.153:1234/user/login',
+            //     data:"id=" + id + "&password=" + psw,
+            //     headers:{'Content-Type': 'application/json; charset=utf-8'}
+            // }).then(function (value) {
+            //     if (value.data === 200)
+            //         window.location.href = "index.html";
+            //     else if(value.data === 400){
+            //         alert("用户名或密码错误！");
+            //         window.location.href = "login.html";
+            //     }
+            //     else
+            //         window.location.href = "400.html";
+            //
+            // });
+
+            $http.get(address + "user/login?id=" + id + "&password=" + psw,{method: 'POST', withCredentials: true})
+                .success(function (response) {
+                if (response === 3){
+                    window.location.href = "index.html";
+                }
+                else if(response === 4){
+
+                    window.location.href = "账号有误";
+                }
+                else{
+                        alert("用户名或密码错误！");
+                        window.location.href = "login.html";
+                    }
+
+            })
+                .error(function(err) {
+                    alert("Error");
+                });
+
+
+        }
+        $scope.reg = function () {
+            var id= document.getElementById("new_id").value;
+            var psw= document.getElementById("new_psw").value;
+            var psw2= document.getElementById("new_psw2").value;
+            var name= document.getElementById("new_name").value;
+            var schoolID= document.getElementById("new_school").value;
+            schoolID = "1";
+           if(psw.length<8){
+               alert("密码长度太短");
+           }
+            if(!(psw===psw2)){
+                alert("两次密码输入不相同");
+            }
+
+
+            $http.get(address + "user/register?id=" + id + "&password=" + psw+ "&schoolId=" + schoolID+ "&name=" + name)
+                .success(function (response) {
+                    // alert(response);
+                    // window.location.href = "login.html";
+                    if (response === "OK"){
+                        alert("注册成功！");
+                        window.location.href = "login.html";
+                    }
+                    // else if(response === 4){
+                    //
+                    //     window.location.href = "400.html";
+                    // }
+                    else{
+                         alert("请修改用户名");
+                    }
+
+                })
+                .error(function(err) {
+                    alert(err);
+                });
+
+
+        }
+
+    })
+</script>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>个人资料 </title>
+
+    <!-- Bootstrap -->
+    <link href="js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="js/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="js/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="js/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>喵喵文件管理</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a href="index.html"><i class="fa fa-home"></i> 我的文件 </a>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> 功能 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="publicfile.html">公共文件</a></li>
+                                    <li><a href="searchbyactor.html">文件上传</a></li>
+                                    <li><a href="file_download.html">文件下载</a></li>
+                                    <li><a href="forum.html">文件求助</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/img.jpg" alt="">John Doe
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="javascript:;"> Profile</a></li>
+
+                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+
+                        </span>
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" ng-app="myApp" ng-controller="siteCtrl">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>个人档案</h3>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>我的动态 </h2>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                                    <div class="profile_img">
+                                        <div id="crop-avatar">
+                                            <!-- Current avatar -->
+                                            <img class="img-responsive avatar-view" src="images/img.jpg" alt="Avatar" title="Change the avatar">
+                                        </div>
+                                    </div>
+                                    <h3>John Doe</h3>
+
+                                    <ul class="list-unstyled user_data">
+                                        <li><i class="fa fa-map-marker user-profile-icon"></i> 学院：软件学院
+                                        </li>
+
+                                        <li>
+                                            <i class="fa fa-briefcase user-profile-icon"></i> 积分：300分
+                                        </li>
+
+
+                                    </ul>
+
+                                    <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>修改</a>
+                                    <br />
+
+
+
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+
+                                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">我的回答</a>
+                                            </li>
+                                            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">我的求助</a>
+                                            </li>
+
+                                        </ul>
+                                        <div id="myTabContent" class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                                                <!-- start answer -->
+                                                <table class="data table table-striped no-margin">
+                                                    <thead>
+                                                    <tr>
+                                                        <th><a href="question.html">问题标题</a></th>
+                                                        <th>回答内容</th>
+                                                        <th>修改时间</th>
+                                                        <th >详情</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="l1 in answer">
+                                                        <td>{{l1.title}}</td>
+                                                        <td>{{l1.content}}</td>
+                                                        <td>{{l1.time}}</td>
+                                                        <td><a  ng-click="detail(l1.questionId)">🔎</a></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                                <!-- end answer -->
+
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                                                <!-- start question -->
+                                                <table class="data table table-striped no-margin">
+                                                    <thead>
+                                                    <tr>
+                                                        <th><a href="question.html">问题标题</a></th>
+                                                        <th>问题详情</th>
+                                                        <th>修改时间</th>
+                                                        <th >详情</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="l2 in question">
+                                                        <td>{{l2.title}}</td>
+                                                        <td>{{l2.content}}</td>
+                                                        <td>{{l2.time}}</td>
+                                                        <td><a  ng-click="detail(l2.questionId)">🔎</a></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                                <!-- end question -->
+
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                                <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
+                                                    photo booth letterpress, commodo enim craft beer mlkshk </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="js/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="js/nprogress/nprogress.js"></script>
+<!-- Dropzone.js -->
+<script src="js/dropzone/dist/min/dropzone.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="js/custom.min.js"></script>
+<script src="js/angular/angular-route.js"></script>
+<script src="js/angular/angular.js"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script>
+
+    var app = angular.module('myApp', []);
+    app.controller('siteCtrl', function($scope, $http) {
+        var address = getAddress();
+        $http.get(address + "forum/getMyAnswer",{ withCredentials: true} )
+            .then(function (response) {
+                $scope.answer = response.data;
+            });
+        $http.get(address + "forum/getMyQuestion" ,{ withCredentials: true})
+            .then(function (response) {
+                $scope.question = response.data;
+            });
+        $scope.detail = function (scode) {
+            window.location.href = "question.html?code=" + scode;
+        }
+
+    })
+</script>
+</body>
+</html>

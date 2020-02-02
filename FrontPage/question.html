@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>问题 </title>
+
+    <!-- Bootstrap -->
+    <link href="js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="js/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="js/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="js/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>喵喵文件管理</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a href="index.html"><i class="fa fa-home"></i> 我的文件 </a>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> 功能 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="publicfile.html">公共文件</a></li>
+                                    <li><a href="searchbyactor.html">文件上传</a></li>
+                                    <li><a href="file_download.html">文件下载</a></li>
+                                    <li><a href="forum.html">文件求助</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/img.jpg" alt="">John Doe
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="javascript:;"> Profile</a></li>
+
+                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+
+                        </span>
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" ng-app="myApp" ng-controller="siteCtrl">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>求助详情</h3>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="row">
+
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>问题详情</h2>
+                            <div class="clearfix"></div>
+                            <div class="x_content">
+                                <div class="panel-body">
+                                    <h3 class="green"> {{question.title}}</h3>
+
+                                    <p>{{question.content}}</p>
+                                    <br />
+
+                                    <div class="project_detail">
+
+                                        <p class="title">发布人</p>
+                                        <p>{{question.name}}</p>
+                                        <p class="title">发布时间</p>
+                                        <p>{{question.time}}</p>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>已有答案 </h2>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>文件提取码</th>
+                                    <th>发布用户</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="l1 in answer">
+                                    <td>{{l1.content}}</td>
+                                    <td>{{l1.name}}</td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>我要回答 </h2>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <br />
+                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">文件提取码 <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="number" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <span class="btn btn-primary"  ng-click="form_query()">回答</span>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="js/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="js/nprogress/nprogress.js"></script>
+<!-- Dropzone.js -->
+<script src="js/dropzone/dist/min/dropzone.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="js/custom.min.js"></script>
+<script src="js/angular/angular-route.js"></script>
+<script src="js/angular/angular.js"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script>
+    function getQueryStringArgs(){
+        var qs = (location.search.length>0?location.search.substring(1):"");
+        var args = {};
+        var items = qs.length?qs.split("&"):[];
+        var item = null;
+        var name = null;
+        var value = null;
+        len = items.length;
+        for (var i = 0; i < len; i++) {
+            item = items[i].split("=");
+            name = decodeURIComponent(item[0]);
+            value = decodeURIComponent(item[1]);
+            if (name.length) {
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+    var args = getQueryStringArgs();
+    var code = args["code"];
+    alert(code);
+    var app = angular.module('myApp', []);
+    app.controller('siteCtrl', function($scope, $http) {
+        //$scope.code = code;
+        var address = getAddress();
+        $http.get(address+"forum/getAnswerList?id=" + code,{withCredentials: true})
+            .success(function (response) {
+                $scope.answer = response;
+                // alert(response)
+            })
+            .error(function() {
+                window.location.href = "login.html";
+            });
+        $http.get(address+"forum/getQuestionDetail?id=" + code,{ withCredentials: true})
+            .success(function (response) {
+                // alert(response);
+                $scope.question = response[0];
+                // alert(response)
+            })
+            .error(function() {
+                window.location.href = "login.html";
+            });
+        $scope.form_query = function () {
+            var number = document.getElementById("number").value;
+            // alert("number:" + number);
+            $http.get(address+"answer?questionID=" + code+"&content="+number,{ withCredentials: true})
+                .then(function (response) {
+                    // alert(response);
+                    //$scope.answer = response.data[0];
+                });
+            // $http.get("http://192.168.1.153:1234/forum/getQuestionDetail?id=" + code,{ withCredentials: true})
+            //     .then(function (response) {
+            //         $scope.question = response.data;
+            //     });
+
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentelella Alela! | </title>
+
+    <!-- Bootstrap -->
+    <link href="js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="js/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="js/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="js/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>喵喵文件管理</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a href="index.html"><i class="fa fa-home"></i> 我的文件 </a>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> 功能 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="publicfile.html">公共文件</a></li>
+                                    <li><a href="file_upload.html">文件上传</a></li>
+                                    <li><a href="file_download.html">文件下载</a></li>
+                                    <li><a href="forum.html">文件求助</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/img.jpg" alt="">John Doe
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="myprofile.html"> Profile</a></li>
+
+                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                                             </span>
+
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" ng-app="myApp" ng-controller="siteCtrl">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>文件上传</h3>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                </div>
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>文件内容 </h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+                        <br />
+                        <div >
+                            <form  id="fileUpload" enctype="multipart/form-data">
+                                <input style="width:300px;height:30px;position:relative;left:50%;top:50%;margin-left:-150px;margin-top:0px;" name="files" type="file" />
+                                <!--<button >上传</button>-->
+
+                            </form>
+                        </div>
+                        <br />
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                            <!--<div class="form-group">-->
+                                <!--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">文件名 <span class="required">*</span>-->
+                                <!--</label>-->
+                                <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                                    <!--<input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <br />
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">文件类型</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="category" class="btn-group" data-toggle="buttons">
+                                        <button class="btn btn-default" type="button" ng-click="class_1()" >图片</button>
+                                        <button class="btn btn-default" type="button" ng-click="class_2()" >文档</button>
+                                        <button class="btn btn-default" type="button" ng-click="class_3()" >压缩文件</button>
+                                        <button class="btn btn-default" type="button" ng-click="class_4()" >书籍</button>
+                                        <button class="btn btn-default" type="button" ng-click="class_5()" >考试资料</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">文件权限</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="gender" class="btn-group" data-toggle="buttons">
+                                        <button class="btn btn-default" type="button" ng-click="star_1()" >仅自己可见</button>
+                                        <button class="btn btn-default" type="button" ng-click="star_2()" >学院可见</button>
+                                        <button class="btn btn-default" type="button" ng-click="star_3()" >所有人可见</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <span class="btn btn-primary"  ng-click="form_query()">提交</span>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="js/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="js/nprogress/nprogress.js"></script>
+<!-- Dropzone.js -->
+<script src="js/dropzone/dist/min/dropzone.min.js"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<!-- Custom Theme Scripts -->
+<script src="js/custom.min.js"></script>
+<script src="js/angular/angular-route.js"></script>
+<script src="js/angular/angular.js"></script>
+
+<script>
+
+    var app = angular.module('myApp', []);
+    app.controller('siteCtrl', function($scope, $http) {
+        var address = getAddress();
+        // $scope.form_query = function () {
+        //     alert("in");
+        //     var name = document.getElementById("name").value;
+        //     var formdata = new FormData($('form')[0]);
+        //     // var form = new FormData();
+        //     // var file = document.getElementById("fileUpload").files[0];
+        //     // form.append('file', file);
+        //     var fd = new FormData();
+        //     var files = document.getElementById("fileUpload")[0];
+        //     console.log(files);
+        //     // for (var i=0; i<files.length; i++) {
+        //     //     fd.append("files", files[i]);
+        //     // }
+        //     fd.append("files",files);
+        //     // ({
+        //     //     method: "POST",
+        //     //     url: "192.168.1.155:1234/postFiles",
+        //     //     data: fd,
+        //     //     success:
+        //     //         function(data) {
+        //     //             $scope.$apply();
+        //     //             alert("ok")
+        //     //         }
+        //     // })
+        //
+        //     alert("name:" + name);
+        //     console.log(fd);
+        //     $http.post("http://192.168.1.109:8080/upload", fd ).
+        //         success(function(data) {
+        //         alert("上传成功");
+        //             console.log(data)
+        //             alert("ok");
+        //     }).error(function(e) {
+        //         console.log(e);
+        //         alert("error");
+        //     })
+        //
+        // }
+        var category=1;
+        var perm=1;
+        $scope.star_1 = function () {
+            perm = 1;
+        };
+        $scope.star_2 = function () {
+            perm = 2;
+
+        };
+        $scope.star_3 = function () {
+            perm = 3;
+
+        };
+        $scope.class_1 = function () {
+            category = 1;
+
+        };
+        $scope.class_2 = function () {
+            category = 2;
+
+        };
+        $scope.class_3 = function () {
+            category = 3;
+
+        };
+        $scope.class_4 = function () {
+            category = 4;
+
+        };
+        $scope.class_5 = function () {
+            category = 5;
+
+        };
+        $scope.form_query = function(){
+            var form = new FormData($("#fileUpload")[0]);
+
+            //var files = document.getElementById("fileUpload")[0];
+            console.log("in");
+            //form.append('files', files);
+            // var name = document.getElementById("name").value;
+            // form.append('name',name)
+            // alert(perm);
+            // alert(category);
+            form.append('permission',perm);
+            form.append('type',category);
+            console.log(form);
+            $http({
+                method: 'POST',
+                url: address+"file/upload",
+                data: form,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity,
+                withCredentials: true
+            }).success(function (data) {
+                alert(data);
+                console.log(data);
+                console.log('upload success');
+            }).error(function() {
+                window.location.href = "login.html";
+            })
+        }
+
+    })
+</script>
+</body>
+</html>

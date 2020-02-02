@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>我的文件 </title>
+
+    <!-- Bootstrap -->
+    <link href="js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="js/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="js/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="js/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>喵喵文件管理</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a href="index.html"><i class="fa fa-home"></i> 我的文件 </a>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> 功能 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="publicfile.html">公共文件</a></li>
+                                    <li><a href="file_upload.html">文件上传</a></li>
+                                    <li><a href="file_download.html">文件下载</a></li>
+                                    <li><a href="forum.html">文件求助</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/img.jpg" alt="">John Doe
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="myprofile.html"> Profile</a></li>
+
+                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+
+                        </span>
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" ng-app="myApp" ng-controller="siteCtrl">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>我的文件</h3>
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <div class="title_right">
+
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <form method="get" id="search_form" >
+
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control" id="aname" placeholder="关键词">
+                                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit" ng-click="form_query()">搜索</button>
+
+                    </span>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>筛选</h2>
+                            <div class="clearfix"></div>
+                            <div class="x_content">
+                                <br />
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">文件类型</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div id="category" class="btn-group" data-toggle="buttons">
+                                            <button class="btn btn-default" type="button" ng-click="class_1()" >图片</button>
+                                            <button class="btn btn-default" type="button" ng-click="class_2()" >文档</button>
+                                            <button class="btn btn-default" type="button" ng-click="class_3()" >压缩文件</button>
+                                            <button class="btn btn-default" type="button" ng-click="class_4()" >书籍</button>
+                                            <button class="btn btn-default" type="button" ng-click="class_5()" >考试资料</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>我的上传</h2>
+                            <div class="clearfix"></div>
+                            <div class="x_content">
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>文件名</th>
+                                        <th>上传时间</th>
+                                        <th>文件权限</th>
+                                        <th>文件大小(kb)</th>
+                                        <th>下载次数</th>
+                                        <th>文件操作</th>
+                                        <th>分享码</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="l1 in fileinfo">
+                                        <th >{{l1.name}}</th>
+                                        <td>{{l1.time}}</td>
+                                        <td>{{l1.permission ===1?"public":"private"}}</td>
+                                        <td>{{l1.size}}</td>
+                                        <td>{{l1.download_times}}</td>
+                                        <td>
+                                            <div class="btn-group  btn-group-sm" data-toggle="buttons">
+                                                <button class="btn btn-default" type="button" ng-click="delete($index,l1.id)" >删除</button>
+                                                <button class="btn btn-default" type="button" ng-click="download(l1.id)" >下载</button>
+                                                <button class="btn btn-default" type="button" ng-click="detail(l1.id)" >查看</button>
+                                                <button class="btn btn-default" type="button" ng-click="share($index,l1.id)" >生成分享码</button>
+                                            </div>
+                                        </td>
+                                        <td>{{l1.code}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="js/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="js/nprogress/nprogress.js"></script>
+<!-- Dropzone.js -->
+<script src="js/dropzone/dist/min/dropzone.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="js/custom.min.js"></script>
+<script src="js/angular/angular-route.js"></script>
+<script src="js/angular/angular.js"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script>
+
+    var app = angular.module('myApp', []);
+    app.controller('siteCtrl', function($scope, $http) {
+        var address = getAddress();
+        $http.get(address+"file/getUserFile",{ withCredentials: true})
+            .success(function (response) {
+                $scope.fileinfo = response;
+            })
+            .error(function() {
+                window.location.href = "login.html";
+            });
+        $scope.class_1 = function () {
+            $http.get(address + "file/getUserFileType?type=" +"1",{ withCredentials: true})
+                .then(function (response) {
+                   // alert(response.data)
+                    $scope.fileinfo = response.data;
+                });
+
+        };
+        $scope.class_2 = function () {
+            $http.get(address + "file/getUserFileType?type=" +"2",{ withCredentials: true})
+                .then(function (response) {
+                    $scope.fileinfo = response.data;
+                });
+
+        };
+        $scope.class_3 = function () {
+            $http.get(address + "file/getUserFileType?type=" +"3",{ withCredentials: true})
+                .then(function (response) {
+                    $scope.fileinfo = response.data;
+                });
+
+        };
+        $scope.class_4 = function () {
+            $http.get(address + "file/getUserFileType?type=" +"4",{ withCredentials: true})
+                .then(function (response) {
+                    $scope.fileinfo = response.data;
+                });
+
+        };
+        $scope.class_5 = function () {
+            $http.get(address + "file/getUserFileType?type=" +"5",{ withCredentials: true})
+                .then(function (response) {
+                    $scope.fileinfo = response.data;
+                });
+
+        };
+        $scope.download = function (scode) {
+            $http.get(address+"file/download?fileId=" +scode,{ withCredentials: true})
+                .then(function (response) {
+                    //alert(response.data)
+                    window.open(response.data, "_self");
+                });
+
+        };
+        $scope.delete = function ($index,scode) {
+            if($index>=0){
+                if(confirm("是否删除"+$scope.fileinfo[$index].name) ){
+                    $scope.fileinfo.splice($index,1);
+                }
+            }
+            $http.get(address+"file/delete?id=" +scode,{ withCredentials: true})
+                .then(function (response) {
+                    //alert(response.data)
+                });
+
+        };
+
+        $scope.share = function ($index,scode) {
+            $http.get(address+"file/getDownloadCode?fileid=" +scode,{ withCredentials: true})
+                .then(function (response) {
+                    alert(response.data);
+                    $scope.fileinfo[$index].code = response.data;
+                });
+
+        };
+        $scope.detail = function (scode) {
+            $http.get(address+"file/download?fileId=" +scode,{ withCredentials: true})
+                .then(function (response) {
+                    //alert(response.data)
+                    var url = response.data;
+                    url = url.replace("?attname=","");
+                    //alert(url);
+                    window.open(url);
+                });
+
+        };
+        $scope.form_query = function () {
+            var aname = document.getElementById("aname").value;
+            // alert("name:" + aname);
+            $http.get(address+"file/searchUserFile?key="+aname,{ withCredentials: true})
+                .then(function (response) {
+                    //alert(response.data)
+                    $scope.fileinfo = response.data;
+                });
+
+        }
+    })
+</script>
+
+</body>
+</html>
